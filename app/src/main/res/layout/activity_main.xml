@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="True or False Quiz"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/yellow"/>
+
+        <!-- Question 1 -->
+        <TextView
+            android:id="@+id/questionTV"
+            android:layout_width="374dp"
+            android:layout_height="117dp"
+            android:text="1. The Earth goes around the Sun."
+            android:textColor="@color/yellow"
+            android:textSize="35sp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="True"
+            android:id="@+id/True"
+            android:textSize="40dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="False"
+            android:id="@+id/False"
+            android:textSize="40dp"/>
+
+        <Button
+            android:id="@+id/submitBTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="SUBMIT"
+            android:textSize="40sp"
+            android:backgroundTint="@color/orange"
+            android:textColor="@color/black" />
+
+
+    </LinearLayout>
+
+</ScrollView>
