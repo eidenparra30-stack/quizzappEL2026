@@ -6,6 +6,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Locale;
+
 public class ScoreActivity extends AppCompatActivity {
 
     @Override
@@ -17,8 +19,8 @@ public class ScoreActivity extends AppCompatActivity {
         Button restartBTN = findViewById(R.id.restartBTN);
 
         // Get the score sent from MainActivity
-        int score = getIntent().getIntExtra("USER_SCORE", 0);
-        finalScoreTV.setText(score + " / 10");
+        int score = getIntent().getIntExtra(MainActivity.EXTRA_SCORE, 0);
+        finalScoreTV.setText(String.format(Locale.getDefault(), "%d / 1", score));
 
         restartBTN.setOnClickListener(v -> {
             // Go back to MainActivity
