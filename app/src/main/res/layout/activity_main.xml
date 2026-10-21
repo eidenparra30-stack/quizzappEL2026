@@ -27,7 +27,7 @@
             android:id="@+id/questionTV"
             android:layout_width="374dp"
             android:layout_height="117dp"
-            android:text="1. The Earth goes around the Sun."
+            android:text="@string/earth"
             android:textColor="@color/yellow"
             android:textSize="35sp" />
 
@@ -50,12 +50,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Next question"
+            android:text="NEXT QUESTION"
             android:textSize="40sp"
             android:backgroundTint="@color/orange"
             android:textColor="@color/black" />
-
-
     </LinearLayout>
 
 </ScrollView>

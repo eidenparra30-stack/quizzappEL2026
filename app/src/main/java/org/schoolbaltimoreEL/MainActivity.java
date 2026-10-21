@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     Question[] tenQuestions;
 
-    int Score = 0;
+    int ScoreTV = 0;
     int currentQuestion = 0;
 
     TextView questionTV;
@@ -39,56 +39,121 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Initialize question prompt and correct answer
-        q1 = new Question("The Earth goes around the Sun.", true);
-        q2 = new Question("A triangle has four sides.", false);
-        q3 = new Question("Water freezes at 0°C.", true);
-        q4 = new Question("Dogs are reptiles.", false);
-        q5 = new Question("The capital of France is Paris.", true);
-        q6 = new Question("There are 60 minutes in one hour.", true);
-        q7 = new Question("The human body has three hearts.", false);
-        q8 = new Question("Plants need sunlight to grow.", true);
-        q9 = new Question("Basketball is played with a bat.", false);
-        q10 = new Question("The Pacific Ocean is an ocean.", true);
+        q1 = new Question(getString(R.string.earth),true);
+        q2 = new Question(getString(R.string.triangle),false);
+        q3 = new Question(getString(R.string.Water),true);
+        q4 = new Question(getString(R.string.Dogs),false);
+        q5 = new Question(getString(R.string.France),true);
+        q6 = new Question(getString(R.string.hour), true);
+        q7 = new Question(getString(R.string.hearts),false);
+        q8 = new Question(getString(R.string.Plants),true);
+        q9 = new Question(getString(R.string.Basketball),false);
+        q10 = new Question(getString(R.string.Pacific),true);
 
         //Initialize my array
         tenQuestions = new Question[] {q1, q2, q3, q4, q5, q6, q7, q8, q9, q10};
 
 
-        TextView questionTV = findViewById(R.id.questionTV);
-        if (questionTV != null) {
-            questionTV.setText(q1.getQuestionPrompt());
-        }
 
-        Button trueBTN = findViewById(R.id.True);
-        Button falseBTN = findViewById(R.id.False);
-        Button submitBTN = findViewById(R.id.submitBTN);
+        questionTV = findViewById(R.id.questionTV);
+        trueBTN = findViewById(R.id.True);
+        falseBTN = findViewById(R.id.False);
+        submitBTN = findViewById(R.id.submitBTN);
+
+        // Show first question
+        questionTV.setText(
+                "10." + tenQuestions[currentQuestion].getQuestionPrompt()
+        );
 
         trueBTN.setOnClickListener(v -> {
+
             selectedAnswer = true;
-            Toast.makeText(this, "Selected: True", Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(
+                    this,
+                    "Selected: True",
+                    Toast.LENGTH_SHORT
+            ).show();
         });
 
         falseBTN.setOnClickListener(v -> {
+
             selectedAnswer = false;
-            Toast.makeText(this, "Selected: False", Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(
+                    this,
+                    "Selected: False",
+                    Toast.LENGTH_SHORT
+            ).show();
         });
 
         submitBTN.setOnClickListener(v -> {
+
             if (selectedAnswer == null) {
-                Toast.makeText(this, "Choose an answer first", Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(
+                        this,
+                        "Choose an answer first",
+                        Toast.LENGTH_SHORT
+                ).show();
+
                 return;
             }
 
-            // Grade answer based on Question's correct answer
-            if (selectedAnswer == q1.getCorrectAnswer()) {
-                score = 1;
+            // Check current answer
+            if (selectedAnswer ==
+                    tenQuestions[currentQuestion].getCorrectAnswer()) {
+
+                score++;
+
+                Toast.makeText(
+                        this,
+                        "Correct!",
+                        Toast.LENGTH_SHORT
+                ).show();
+
             } else {
-                score = 0;
+
+                Toast.makeText(
+                        this,
+                        "Wrong!",
+                        Toast.LENGTH_SHORT
+                ).show();
             }
 
-            Intent intent = new Intent(MainActivity.this, ScoreActivity.class);
-            intent.putExtra(EXTRA_SCORE, score);
-            startActivity(intent);
+            // Move to next question
+            currentQuestion++;
+
+            // Reset selected answer
+            selectedAnswer = null;
+
+            // If there are still questions left
+            if (currentQuestion < tenQuestions.length) {
+
+                questionTV.setText(
+                        (currentQuestion + 1)
+                                + ". "
+                                + tenQuestions[currentQuestion]
+                                .getQuestionPrompt()
+                );
+
+                // Change button text on question 10
+                if (currentQuestion == 9) {
+                    submitBTN.setText("SEE SCORE");
+                }
+
+            } else {
+
+                // After question 10 go to ScoreActivity
+                Intent intent = new Intent(
+                        MainActivity.this,
+                        ScoreActivity.class
+                );
+
+                intent.putExtra(EXTRA_SCORE, score);
+
+                startActivity(intent);
+            }
         });
     }
 }

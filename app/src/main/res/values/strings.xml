@@ -1,3 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">quizappEL</string>
+
+    <string name="app_name">Quizzappp</string>
+    <string name="prompt_Header">Music</string>
+    <string name="num_QHeader">QUESTION 1 OF 10</string>
+    <string name="q_Screen">Question text</string>
+    <string name="true_BTN">True</string>
+    <string name="false_BTN">False</string>
+    <string name="next_Q">NEXT QUESTION</string>
+    <string name="finish_BTN">FINISHED - VIEW SCORE</string>
+    <string name="quiz_title">Quiz Title</string>
+    <string name="Score">Score: </string>
+
+    <!-- Music Questions -->
+
+    <string name="earth">The Earth goes around the Sun.</string>
+    <!-- true -->
+
+    <string name="triangle">A triangle has four sides</string>
+    <!-- False -->
+
+    <string name="Water">Water freezes at 0°C.</string>
+    <!-- true -->
+
+    <string name="Dogs">Dogs are reptiles.</string>
+    <!-- False -->
+
+    <string name="France">The capital of France is Paris.</string>
+    <!-- True -->
+
+    <string name="hour">There are 60 minutes in one hour.</string>
+    <!-- True -->
+
+    <string name="hearts">The human body has three hearts.</string>
+    <!-- false -->
+
+    <string name="Plants">Plants need sunlight to grow.</string>
+    <!-- true -->
+
+    <string name="Basketball">Basketball is played with a bat.</string>
+    <!-- False -->
+
+    <string name="Pacific">The Pacific Ocean is an ocean.</string>
+    <!-- true -->
+
 </resources>

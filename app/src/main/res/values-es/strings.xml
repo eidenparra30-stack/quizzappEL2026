@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Quizzappp</string>
+    <string name="prompt_Header">Preguntas Generales</string>
+    <string name="num_QHeader">PREGUNTA 1 DE 10</string>
+    <string name="q_Screen">Texto de la pregunta</string>
+    <string name="true_BTN">Verdadero</string>
+    <string name="false_BTN">Falso</string>
+    <string name="next_Q">SIGUIENTE PREGUNTA</string>
+    <string name="finish_BTN">TERMINAR - VER PUNTUACIÓN</string>
+    <string name="quiz_title">Cuestionario</string>
+    <string name="Score">Puntuación: </string>
+
+    <!-- Preguntas del Quiz -->
+
+    <string name="earth">La Tierra gira alrededor del Sol.</string>
+    <!-- Verdadero -->
+
+    <string name="triangle">Un triángulo tiene cuatro lados.</string>
+    <!-- Falso -->
+
+    <string name="Water">El agua se congela a 0°C.</string>
+    <!-- Verdadero -->
+
+    <string name="Dogs">Los perros son reptiles.</string>
+    <!-- Falso -->
+
+    <string name="France">La capital de Francia es París.</string>
+    <!-- Verdadero -->
+
+    <string name="hour">Hay 60 minutos en una hora.</string>
+    <!-- Verdadero -->
+
+    <string name="hearts">El cuerpo humano tiene tres corazones.</string>
+    <!-- Falso -->
+
+    <string name="Plants">Las plantas necesitan luz solar para crecer.</string>
+    <!-- Verdadero -->
+
+    <string name="Basketball">El baloncesto se juega con un bate.</string>
+    <!-- Falso -->
+
+    <string name="Pacific">El océano Pacífico es un océano.</string>
+    <!-- Verdadero -->
+
+</resources>

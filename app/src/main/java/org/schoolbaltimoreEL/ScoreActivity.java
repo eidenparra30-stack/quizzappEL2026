@@ -20,7 +20,7 @@ public class ScoreActivity extends AppCompatActivity {
 
         // Get the score sent from MainActivity
         int score = getIntent().getIntExtra(MainActivity.EXTRA_SCORE, 0);
-        finalScoreTV.setText(String.format(Locale.getDefault(), "%d / 1", score));
+        finalScoreTV.setText(String.format(Locale.getDefault(), "%d / 10", score));
 
         restartBTN.setOnClickListener(v -> {
             // Go back to MainActivity
