@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Quizzappp</string>
+    <string name="app_name">QuizzappEL</string>
     <string name="prompt_Header">Preguntas Generales</string>
     <string name="num_QHeader">PREGUNTA 1 DE 10</string>
     <string name="q_Screen">Texto de la pregunta</string>

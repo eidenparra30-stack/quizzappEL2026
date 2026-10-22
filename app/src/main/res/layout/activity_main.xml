@@ -34,14 +34,14 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="True"
+            android:text="@string/true_BTN"
             android:id="@+id/True"
             android:textSize="40dp"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="False"
+            android:text="@string/false_BTN"
             android:id="@+id/False"
             android:textSize="40dp"/>
 
@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="NEXT QUESTION"
+            android:text="@string/next_Q"
             android:textSize="40sp"
             android:backgroundTint="@color/orange"
             android:textColor="@color/black" />

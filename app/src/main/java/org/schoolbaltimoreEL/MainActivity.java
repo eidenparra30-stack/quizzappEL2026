@@ -62,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Show first question
         questionTV.setText(
-                "10." + tenQuestions[currentQuestion].getQuestionPrompt()
+                "1." +
+                        "" + tenQuestions[currentQuestion].getQuestionPrompt()
         );
 
         trueBTN.setOnClickListener(v -> {
