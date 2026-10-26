@@ -11,6 +11,11 @@
     <string name="finish_BTN">FINISHED - VIEW SCORE</string>
     <string name="quiz_title">Quiz Title</string>
     <string name="Score">Score: </string>
+    <string name="selected_true">Selected: True</string>
+    <string name="selected_false">Selected: False</string>
+    <string name="choose_answer">Choose an answer first</string>
+    <string name="correct_toast">Correct!</string>
+    <string name="wrong_toast">Wrong!</string>
 
     <!-- Music Questions -->
 
@@ -43,5 +48,8 @@
 
     <string name="Pacific">The Pacific Ocean is an ocean.</string>
     <!-- true -->
+
+    <string name="btn_see_score" translatable="false">SEE SCORE</string>
+    <string name="btn_submit" translatable="false">SUBMIT</string>
 
 </resources>

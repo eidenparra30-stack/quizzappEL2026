@@ -11,6 +11,11 @@
     <string name="finish_BTN">TERMINAR - VER PUNTUACIÓN</string>
     <string name="quiz_title">Cuestionario</string>
     <string name="Score">Puntuación: </string>
+    <string name="selected_true">Seleccionaste: Verdadero</string>
+    <string name="selected_false">Seleccionaste: Falso</string>
+    <string name="choose_answer">Elige una respuesta primero</string>
+    <string name="correct_toast">¡Correcto!</string>
+    <string name="wrong_toast">¡Incorrecto!</string>
 
     <!-- Preguntas del Quiz -->
 

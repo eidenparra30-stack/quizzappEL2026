@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
     Question[] tenQuestions;
 
-    int ScoreTV = 0;
     int currentQuestion = 0;
 
     TextView questionTV;
@@ -39,21 +38,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Initialize question prompt and correct answer
-        q1 = new Question(getString(R.string.earth),true);
-        q2 = new Question(getString(R.string.triangle),false);
-        q3 = new Question(getString(R.string.Water),true);
-        q4 = new Question(getString(R.string.Dogs),false);
-        q5 = new Question(getString(R.string.France),true);
-        q6 = new Question(getString(R.string.hour), true);
-        q7 = new Question(getString(R.string.hearts),false);
-        q8 = new Question(getString(R.string.Plants),true);
-        q9 = new Question(getString(R.string.Basketball),false);
-        q10 = new Question(getString(R.string.Pacific),true);
+        q1 = new Question(getString(R.string.earth),true, "https://science.nasa.gov/solar-system/");
+        q2 = new Question(getString(R.string.triangle),false,"https://www.mathsisfun.com/triangle.html");
+        q3 = new Question(getString(R.string.Water),true, "https://www.usgs.gov/special-topics/water-science-school");
+        q4 = new Question(getString(R.string.Dogs),false,"https://kids.nationalgeographic.com/animals/mammals/facts/domestic-dog");
+        q5 = new Question(getString(R.string.France),true, "https://kids.nationalgeographic.com/geography/countries/article/france");
+        q6 = new Question(getString(R.string.hour), true, "https://www.mathsisfun.com/measure/time.html");
+        q7 = new Question(getString(R.string.hearts),false,"https://kidshealth.org/en/kids/heart.html");
+        q8 = new Question(getString(R.string.Plants),true,"https://kids.nationalgeographic.com/nature/article/photosynthesis");
+        q9 = new Question(getString(R.string.Basketball),false, "https://www.britannica.com/sports/basketball");
+        q10 = new Question(getString(R.string.Pacific),true,"https://oceanservice.noaa.gov/facts/biggestocean.html");
 
         //Initialize my array
         tenQuestions = new Question[] {q1, q2, q3, q4, q5, q6, q7, q8, q9, q10};
-
-
 
         questionTV = findViewById(R.id.questionTV);
         trueBTN = findViewById(R.id.True);
@@ -61,65 +58,30 @@ public class MainActivity extends AppCompatActivity {
         submitBTN = findViewById(R.id.submitBTN);
 
         // Show first question
-        questionTV.setText(
-                "1." +
-                        "" + tenQuestions[currentQuestion].getQuestionPrompt()
-        );
+        displayCurrentQuestion();
 
         trueBTN.setOnClickListener(v -> {
-
             selectedAnswer = true;
-
-            Toast.makeText(
-                    this,
-                    "Selected: True",
-                    Toast.LENGTH_SHORT
-            ).show();
+            Toast.makeText(this, R.string.selected_true, Toast.LENGTH_SHORT).show();
         });
 
         falseBTN.setOnClickListener(v -> {
-
             selectedAnswer = false;
-
-            Toast.makeText(
-                    this,
-                    "Selected: False",
-                    Toast.LENGTH_SHORT
-            ).show();
+            Toast.makeText(this, R.string.selected_false, Toast.LENGTH_SHORT).show();
         });
 
         submitBTN.setOnClickListener(v -> {
 
             if (selectedAnswer == null) {
-
-                Toast.makeText(
-                        this,
-                        "Choose an answer first",
-                        Toast.LENGTH_SHORT
-                ).show();
-
+                Toast.makeText(this, R.string.choose_answer, Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            // Check current answer
-            if (selectedAnswer ==
-                    tenQuestions[currentQuestion].getCorrectAnswer()) {
-
+            if (selectedAnswer == tenQuestions[currentQuestion].getCorrectAnswer()) {
                 score++;
-
-                Toast.makeText(
-                        this,
-                        "Correct!",
-                        Toast.LENGTH_SHORT
-                ).show();
-
+                Toast.makeText(this, R.string.correct_toast, Toast.LENGTH_SHORT).show();
             } else {
-
-                Toast.makeText(
-                        this,
-                        "Wrong!",
-                        Toast.LENGTH_SHORT
-                ).show();
+                Toast.makeText(this, R.string.wrong_toast, Toast.LENGTH_SHORT).show();
             }
 
             // Move to next question
@@ -130,31 +92,25 @@ public class MainActivity extends AppCompatActivity {
 
             // If there are still questions left
             if (currentQuestion < tenQuestions.length) {
-
-                questionTV.setText(
-                        (currentQuestion + 1)
-                                + ". "
-                                + tenQuestions[currentQuestion]
-                                .getQuestionPrompt()
-                );
-
-                // Change button text on question 10
-                if (currentQuestion == 9) {
-                    submitBTN.setText("SEE SCORE");
-                }
-
+                displayCurrentQuestion();
             } else {
-
                 // After question 10 go to ScoreActivity
-                Intent intent = new Intent(
-                        MainActivity.this,
-                        ScoreActivity.class
-                );
-
+                Intent intent = new Intent(MainActivity.this, ScoreActivity.class);
                 intent.putExtra(EXTRA_SCORE, score);
-
                 startActivity(intent);
+                finish();
             }
         });
+    }
+
+    private void displayCurrentQuestion() {
+        String questionText = (currentQuestion + 1) + ". " + tenQuestions[currentQuestion].getQuestionPrompt();
+        questionTV.setText(questionText);
+
+        if (currentQuestion == tenQuestions.length - 1) {
+            submitBTN.setText(getString(R.string.btn_see_score));
+        } else {
+            submitBTN.setText(getString(R.string.btn_submit));
+        }
     }
 }
