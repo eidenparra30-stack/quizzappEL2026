@@ -1,6 +1,7 @@
 package org.schoolbaltimoreEL;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     Button trueBTN;
     Button falseBTN;
     Button submitBTN;
+    Button HintBTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         trueBTN = findViewById(R.id.True);
         falseBTN = findViewById(R.id.False);
         submitBTN = findViewById(R.id.submitBTN);
+        HintBTN = findViewById(R.id.hintBTN);
+
 
         // Show first question
         displayCurrentQuestion();
@@ -71,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         submitBTN.setOnClickListener(v -> {
-
             if (selectedAnswer == null) {
                 Toast.makeText(this, R.string.choose_answer, Toast.LENGTH_SHORT).show();
                 return;
@@ -100,6 +103,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
+
+        });
+        HintBTN.setOnClickListener(v -> {
+            // hint code here
+            String websiteUrl = tenQuestions[currentQuestion].getHintLink();
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(websiteUrl));
+            // Verify that there is an app available to handle the intent
+            startActivity(intent);
         });
     }
 
@@ -111,6 +122,10 @@ public class MainActivity extends AppCompatActivity {
             submitBTN.setText(getString(R.string.btn_see_score));
         } else {
             submitBTN.setText(getString(R.string.btn_submit));
+
+
         }
     }
 }
+
+

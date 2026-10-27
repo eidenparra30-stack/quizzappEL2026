@@ -54,6 +54,17 @@
             android:textSize="40sp"
             android:backgroundTint="@color/orange"
             android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/hintBTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HINT"
+            android:textSize="30sp"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/red"
+            android:layout_marginTop="40dp"/>
+
     </LinearLayout>
 
 </ScrollView>
