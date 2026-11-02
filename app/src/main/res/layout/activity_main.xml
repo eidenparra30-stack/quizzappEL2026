@@ -52,8 +52,8 @@
             android:layout_marginTop="30dp"
             android:text="@string/next_Q"
             android:textSize="40sp"
-            android:backgroundTint="@color/orange"
-            android:textColor="@color/black" />
+            android:backgroundTint="@color/black"
+            android:textColor="@color/yellow" />
 
         <Button
             android:id="@+id/hintBTN"
@@ -62,7 +62,7 @@
             android:text="HINT"
             android:textSize="30sp"
             android:backgroundTint="@color/black"
-            android:textColor="@color/red"
+            android:textColor="@color/yellow"
             android:layout_marginTop="40dp"/>
 
     </LinearLayout>

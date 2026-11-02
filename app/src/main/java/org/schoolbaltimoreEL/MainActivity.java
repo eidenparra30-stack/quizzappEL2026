@@ -99,7 +99,8 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 // After question 10 go to ScoreActivity
                 Intent intent = new Intent(MainActivity.this, ScoreActivity.class);
-                intent.putExtra(EXTRA_SCORE, score);
+                intent.putExtra("SCORE_KEY", score);
+                intent.putExtra("TOTAL_KEY", tenQuestions.length);
                 startActivity(intent);
                 finish();
             }

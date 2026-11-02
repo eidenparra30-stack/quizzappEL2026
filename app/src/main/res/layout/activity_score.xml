@@ -31,6 +31,19 @@
         android:text="RESTART QUIZ"
         android:textSize="30sp"
         android:layout_marginTop="50dp"
-        android:backgroundTint="@color/orange"
+        android:backgroundTint="@color/yellow"
         android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/SendEmailBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Score to email"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/yellow" />
+
+
+
 </LinearLayout>

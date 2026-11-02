@@ -1,33 +1,62 @@
 package org.schoolbaltimoreEL;
 
+
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Locale;
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 public class ScoreActivity extends AppCompatActivity {
+
+    Intent incoming;
+    int numQ;
+    int score;
+    TextView scoreDisplayTextView;
+    Button SendEmailBTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
 
-        TextView finalScoreTV = findViewById(R.id.finalScoreTV);
-        Button restartBTN = findViewById(R.id.restartBTN);
+        scoreDisplayTextView = findViewById(R.id.finalScoreTV);
+        numQ = 0;
+        score = 0;
+        incoming = getIntent();
 
-        // Get the score sent from MainActivity
-        int score = getIntent().getIntExtra(MainActivity.EXTRA_SCORE, 0);
-        finalScoreTV.setText(String.format(Locale.getDefault(), "%d / 10", score));
+        numQ = incoming.getIntExtra("TOTAL_KEY", 0);
+        score = incoming.getIntExtra("SCORE_KEY", 0);
 
-        restartBTN.setOnClickListener(v -> {
-            // Go back to MainActivity
-            Intent intent = new Intent(ScoreActivity.this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            finish();
+        scoreDisplayTextView.setText(score + "/" + numQ);
+
+        // add button onClick listener that will call your method
+
+        Button SendEmailBTN = findViewById(R.id.SendEmailBTN);
+
+        SendEmailBTN.setOnClickListener(v -> {
+            String[] addresses = {"eidenparra30@gmail.com"};
+            String subject = "planet Quiz Score";
+            String body = "My score is " + score + "/" + numQ;
+
+            composeEmail(addresses, subject, body);
         });
+
+    }
+
+    public void composeEmail(String[] addresses, String subject, String body) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // Only email apps handle this.
+        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, body);
+        startActivity(intent);
     }
 }
+
