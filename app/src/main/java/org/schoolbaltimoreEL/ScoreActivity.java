@@ -20,6 +20,7 @@ public class ScoreActivity extends AppCompatActivity {
     int score;
     TextView scoreDisplayTextView;
     Button SendEmailBTN;
+    Button restartbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,8 @@ public class ScoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_score);
 
         scoreDisplayTextView = findViewById(R.id.finalScoreTV);
+        SendEmailBTN = findViewById(R.id.SendEmailBTN);
+        restartbutton = findViewById(R.id.restartBTN);
         numQ = 0;
         score = 0;
         incoming = getIntent();
@@ -38,7 +41,7 @@ public class ScoreActivity extends AppCompatActivity {
 
         // add button onClick listener that will call your method
 
-        Button SendEmailBTN = findViewById(R.id.SendEmailBTN);
+
 
         SendEmailBTN.setOnClickListener(v -> {
             String[] addresses = {"eidenparra30@gmail.com"};
@@ -46,6 +49,11 @@ public class ScoreActivity extends AppCompatActivity {
             String body = "My score is " + score + "/" + numQ;
 
             composeEmail(addresses, subject, body);
+        });
+        restartbutton.setOnClickListener(v -> {
+            Intent intent = new Intent(ScoreActivity.this, MainActivity.class);
+            startActivity(intent);
+
         });
 
     }
